@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  body{
+   background:linear-gradient(35deg,#e0eafc,#cfdef3);
+   min-height: 100vh;
+   color: #333;
+   display: flex;
+   flex-direction: column;
+
+  }
+  span{
+    background: linear-gradient(135deg,#2c3e50,#34496e);
+    color: #fff;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0, 0, 0.2);
+
+  }
+  h1{
+    letter-spacing: 1px;
+    font-size: 2.3rem;
+  }
+
+  .container{
+
+    max-width: 1100px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding: 0 20px;
+  }
+
+  .card{
+    background: rgba(255, 255,255, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+    
+  }
+  .card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.50);
+  }
+     .card a {
+        display: inline-block;
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        color: #fff;
+        padding: 10px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 15px;
+        transition: 0.3s ease;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    .card a:hover {
+        background: linear-gradient(135deg, #1d4ed8, #172554);
+        transform: translateY(-2px);
+        box-shadow: 0 7px 15px rgba(37, 99, 235, 0.35);
+    }
+
+   footer{
+                background-color: #0b0b0b;
+                color:white;
+                text-align: center;
+                padding: 15px;
+                width:100%;
+                position:relative;
+                bottom: 0;
+                left:0;
+            }
+  </style>
+
+
+</head>
+<body>
+ <span>
+    <h1>Stduent Records Dashboard</h1>
+ </span>
+
+ <div class="container">
+
+    <div class="card">
+        <img src="https://img.icons8.com/?size=100&id=JGe51z9QiUjz&format=png&color=000000">
+        <h2>Add Students</h2>
+        <a href="{% url 'add_students' %}">Go</a>    
+    </div>
+
+ <div class="card">
+        <img src="https://img.icons8.com/?size=100&id=13448&format=png&color=000000">
+        <h2>View Students</h2>
+        <a href="{% url 'view_students' %}">Go</a>    
+    </div>
+
+   <div class="card">
+        <img src="https://img.icons8.com/?size=100&id=KPmthqkeTgDN&format=png&color=000000">
+        <h2>Search Students</h2>
+        <a href="{% url 'search_student' %}">Go</a>    
+    </div>
+
+    <div class="card">
+        <img src="https://img.icons8.com/?size=100&id=23264&format=png&color=2563EB">
+        <h2>Account</h2>
+        <a href="{% url 'login' %}">Go</a>    
+    </div>
+
+    <div class="card">
+        <img src="https://img.icons8.com/?size=100&id=YkjuvFOM0L0z&format=png&color=000000">
+        <h2>View Feedback</h2>
+        <a href="{% url 'view_feedback'%}">Go</a>    
+    </div>
+
+    <div class="card">
+        <img src="https://img.icons8.com/?size=100&id=13925&format=png&color=000000">
+        <h2>Logout</h2>
+        <a href="{% url 'admin_logout'%}">Go</a>    
+    </div>
+ </div>
+
+ <footer>
+        <p>@ 2026 Student Management System.</p>
+        <p>Manage Student records efficiently and securely.</p>
+        <p>@ 2026 All Right Reserved.</p>
+    </footer>
+
+</body>
+</html> 

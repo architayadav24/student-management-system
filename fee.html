@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fee</title>
+    <style>
+        body{
+            background-color: #f4f4f4;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .card{
+            width:600px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding:25px;
+            box-shadow: 0 0 10px grey;
+           }
+
+            table{
+                width:100%;
+                border-collapse: collapse;
+
+            }
+            table td{
+                padding: 12px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            h2{
+                text-align:center;
+                color:#0400ff;
+            
+            }
+            .btn{
+                display:inline-block;
+                margin-top: 20px;
+                text-decoration:none;
+                background-color: #28a745;
+                color:white;
+                padding: 12px 25px;
+                border-radius: 5px;
+            }
+            .btn:hover{
+                background: #218838;
+            }
+     
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>fee detail</h2>
+        <table>
+            <tr>
+                <td><b>Student Name</b></td>
+                <td>{{student.name}}</td>
+            </tr>
+
+             <tr>
+                <td><b>Course</b></td>
+                <td>{{student.technology}}</td>
+            </tr>
+
+             <tr>
+                <td><b>Total Fee</b></td>
+                <td>{{student.total_fee}} &#8377;</td>
+            </tr>
+
+             <tr>
+                <td><b>Paid fee</b></td>
+                <td>{{student.paid_fee}}&#8377;</td>
+            </tr>
+
+             <tr>
+                <td><b>Due fee</b></td>
+                <td>{{student.due_fee}}&#8377;</td>
+            </tr>
+        </table>
+
+       <center> <a href="{% url 'payment_receipt'%}" class="btn">Download Receipt (pdf)</a> </center>
+    </div>
+   
+
+</body>
+</html>

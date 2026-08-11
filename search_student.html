@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Student</title>
+</head>
+<style>
+    *{
+        margin:0px;
+        padding:0px;
+        box-sizing: border-box;
+        font-family: 'Poppins',sans-serif;
+
+    }
+
+    body{
+        background:linear-gradient(135deg, #e0eafc,#ecfdec);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    span{
+        background:linear-gradient(135deg, #2c3e50, #34495e);
+        color:#efff;
+        padding:25px;
+        width:100%;
+        text-align: center;
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+
+    }
+    h1{
+        letter-spacing: 1px;
+        font-size: 30px;
+    }
+
+    .find-container{
+        background-color: rgba(255,255,255,0.03);
+        padding:30px 40px;
+        border-radius: 8px;
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+        max-width: 600px;
+        width:90%;
+        text-align: center;
+        position: relative;
+        top:140px;
+    }
+
+    form{
+        justify-content: center;
+        align-items: center;
+        gap:10px;
+
+    }
+    input{
+        padding:12px, 15px;
+        border:1px solid #3498db;
+        width: 70%;outline:none;
+        font-size: 18px;
+    
+    }
+    button{
+        background-color:#3498db;
+        color:#efff;
+        padding:12px 13px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <span>
+        <h1>Search Record</h1>
+    </span>
+    <div class="find-container">
+<h2>
+    Find Students Record
+</h2>
+<form method="post" action="{% url 'search_student' %}">
+    {% csrf_token %}
+    <input type="text" name="sname" placeholder="Enter student name" required>
+    <button type="submit" value="Search">Search</button>
+
+
+</form>
+    </div>
+
+</body>
+</html>

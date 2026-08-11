@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student_home</title>
+
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+        }
+
+        body{
+            background-color: #f4f7fc;
+            
+        }
+
+        .header{
+            width:100%;
+            background: #ff6600;
+            color:white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px, 40px;
+        }
+
+        .header a{
+            color:white;
+            text-decoration: none;
+            background: #222;
+            padding: 10px 20px;
+            border-radius: 5px;
+
+        }
+
+        .profile{
+            width: 90%;
+            background-color: #fff;
+            padding: 20px ;
+            margin: 25px auto;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: o 4p 15px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        .info{
+            margin-left: 20px;
+
+        }
+        .info p{
+            color:#666;
+            margin-top: 5px;
+
+        }
+        .cards{
+            width:90%;
+            margin: 30px auto;
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+            gap:25px;
+
+        }
+        .card{
+            background: #fff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rbga(0 0 0 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover{
+            transform: translate(-8px);
+        }
+        .card h3{
+            margin-bottom: 15px;
+
+        }
+        .card a{
+            text-decoration: none;
+            background-color: #ff6600;
+            color:#fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display:inline-block;
+        }
+
+        .profile img{
+            width:90px;
+            height:90px;
+            border-radius: 50%;
+            border: 3px solid #ff6600;
+
+        }
+
+        
+
+
+         
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Student Dashboard</h2>
+        <a href="{% url 'admin_logout' %}">logout</a>
+    </div>
+    <div class="profile">
+        {% if student.image %}
+<img src="{{ student.image.url }}">
+        {% endif %}
+        <div class="info">
+            <h3>Welcome {{student.name}}</h3>
+            <p> {{student.email}}</p>
+            <p>Technology {{student.technology}}</p>
+        </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Edit profile</h3>
+                <a href="{% url 'edit_profile'%}">Edit</a>
+            </div>
+
+            <div class="card">
+                <h3>Fee Details</h3>
+                <a href="{% url 'fee_detail' %}">View</a>
+            </div>
+            <div class="card">
+                <h3>Change Password</h3>
+                <a href="{% url 'user_change_pass' %}">Change</a>
+            </div>
+        </div>
+
+        
+
+</body>
+</html>

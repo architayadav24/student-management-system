@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+
+     <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+body{
+    background:#f1f5f9;
+    min-height:100vh;
+}
+
+.containerr{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+}
+
+.left{
+    flex:1;
+    text-align:center;
+}
+
+.left img{
+    width:100%;
+    max-width:450px;
+}
+
+.login-box{
+    flex:1;
+    max-width:420px;
+    background:#fff;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.login-box h2{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:30px;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.input-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.input-box input:focus{
+    outline:none;
+    border-color:#2563eb;
+}
+
+.remember{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.remember a{
+    text-decoration:none;
+    color:#2563eb;
+}
+
+button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.register{
+    margin-top:20px;
+    text-align:center;
+}
+
+.register a{
+    color:#2563eb;
+    text-decoration:none;
+}
+
+@media(max-width:768px){
+
+.containerr{
+    flex-direction:column;
+    padding:30px 0;
+}
+
+.left img{
+    max-width:300px;
+}
+
+}
+
+    </style>
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <div class="containerr">
+
+<div class="left">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3pU3b2LJEhfMTtSp4Dg7NFuqMxgM3jTPPSqYMPejZ9w&s=10">
+
+</div>
+
+<div class="login-box">
+
+<h2>
+<i class="fa-solid fa-user-shield"></i>  Login
+</h2>
+
+<form  method="POST" action="{% url 'login' %}">
+{% csrf_token %}
+
+
+<div class="input-box">
+<label>Username</label>
+<input type="text" name="username"  placeholder="Enter Username" required>
+</div>
+
+<div class="input-box">
+<label>Password</label>
+<input type="password"  name="password" placeholder="Enter Password" required>
+</div>
+
+<div class="remember">
+
+<label>
+<input type="checkbox">
+Remember Me
+</label>
+
+<a href="{% url 'forgot_password' %}">Forgot Password?</a>
+
+</div>
+
+<button type="submit"><i class="fa-solid fa-right-to-bracket"></i>Login</button>
+
+</form>
+
+<div class="register">
+
+Don't have an account?
+
+
+</div>
+
+</div>
+
+</div>
+{% if error == "no" %}
+<script>
+    alert("login successfully")
+    window.location = "{% url 'AdminHome' %}"
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert("invalid username and password.");
+</script>
+{% endif %}
+</body>
+</html>

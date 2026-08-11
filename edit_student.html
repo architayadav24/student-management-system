@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+        }
+
+        body{
+            background-color: #f2f2f2;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+
+        }
+        h2{
+            text-align: center;
+            color:#ff6600;
+            margin-bottom: 20px;
+
+        }
+        .form-container{
+            width:450px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rbga(0,0,0,0.2);
+        }
+
+        input,select{
+            width:100% ;
+            padding:12px;
+            margin:8px 0;
+            border:1px solid #ccc;
+            border-radius: 5px;
+            
+
+        }
+        .btn{
+            background-color: #ff6600;
+            color:#fff;
+            border-radius: 8px;
+
+        }
+
+
+
+
+
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Edit Student</h2>
+    <form method="post">
+        {% csrf_token %}
+        Name
+        <input type="text" value="{{data.name}}" name="fname">
+        email
+        <input type="email" value="{{data.email}}" name="email"> 
+        college
+        <input type="text" value="{{data.college}}" name="college">
+        address
+        <input type="text" value="{{data.address}}" name="address">
+        join date
+        <input type="date" value="{{data.join_date}}" name="jdate">
+        total fee
+        <input type="text" value="{{data.total_fee}}" name="tfee">
+        paid fee
+        <input type="text" value="{{data.paid_fee}}" name="pfee">
+        due fee
+        <input type="text" value="{{data.due_fee}}" name="dfee">
+        phone
+        <input type="text" value="{{data.phone}}" name="phone">
+        technology
+        <input name="technology" value="{{data.technology}}">
+        <select name="technology">
+            {% if data.technology == "python" %}
+                        <option value="php">php</option>
+                        <option value="python" selected >python</option>
+                        <option value="java">java</option>
+                        <option value="Mern">Mern</option>
+                        <option value="Asp.net">Asp.net</option>
+                        {% endif %}
+                        </select>
+
+                    <select name="technology">
+                   {% if data.technology == "php" %}
+                        <option value="php" selected >php</option>
+                        <option value="python" >python</option>
+                        <option value="java">java</option>
+                        <option value="Mern">Mern</option>
+                        <option value="Asp.net">Asp.net</option>  
+                        {% endif %}    
+        </select>
+
+        
+                    <select name="technology">
+                   {% if data.technology == "java" %}
+                        <option value="php">php</option>
+                        <option value="python" >python</option>
+                        <option value="java" selected >java</option>
+                        <option value="Mern">Mern</option>
+                        <option value="Asp.net">Asp.net</option>  
+                        {% endif %}    
+        </select>
+        
+                    <select name="technology">
+                   {% if data.technology == "mern" %}
+                        <option value="php">php</option>
+                        <option value="python" >python</option>
+                        <option value="java" >java</option>
+                        <option value="Mern" selected>Mern</option>
+                        <option value="Asp.net">Asp.net</option>  
+                        {% endif %}    
+        </select>
+        
+                    <select name="technology">
+                   {% if data.technology == "Asp.net" %}
+                        <option value="php"selected>php</option>
+                        <option value="python" >python</option>
+                        <option value="java" >java</option>
+                        <option value="Mern">Mern</option>
+                        <option value="Asp.net" selected >Asp.net</option>  
+                        {% endif %}    
+        </select>
+
+
+
+        <input type="submit" value="update" class="btn">
+    </form>
+    </div>
+
+    {% if error == "no" %}
+<script>
+    alert("Data updataed succesfully")
+    window.location = "{% url 'view_students' %}"
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert("Something went  wrong.");
+</script>
+{% endif %}
+</body>
+</html>

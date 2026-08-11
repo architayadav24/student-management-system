@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .logo img{
+            height: 45px;
+
+
+            
+        }
+        
+        .navbar{
+            background: #1f2937;
+            position: sticky;
+            top:0px;
+            z-index:100;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+        .container{
+            width: 90%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
+        .logo{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo b{
+            color: aliceblue;
+            margin-left: 10px;
+            font-size: 22px;
+        }
+        .navbar ul li{
+            display: inline-block;
+            margin-left: 150px;
+        }
+        .navbar ul li a{
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            position: relative;
+            transition:0.3;
+
+        }
+        .navbar ul li a i{
+            margin-right: 5px;
+
+
+        }
+        .navbar ul li a:hover{
+            color: #38dbf8;
+            
+        
+        }
+         .navbar ul li a:after{
+            content:"";
+            position: absolute;
+            left:0;
+            bottom:-5px;
+            width:0;
+            height:2px;
+            background:  #38dbf8;
+            transition: 0.3;
+         }
+         .navbar ul li a:hover:after{
+            width:100%;
+
+         }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlikjW7RTLbXBB9RkD9J2GGHjdAxpVaniNnAURgFQiGzK7TXZnMWCFoDo&s">
+                <b>Student Record</b>
+
+            </a>
+            <ul>
+                <li><a href="{% url 'index'  %}"><i class="fa-solid fa-house" style="color: rgb(177, 151, 252);"></i>Home</a></li>
+                <li><a href="{% url 'login'  %}"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(177, 151, 252);"></i>Login</a></li>
+                <li><a href="{% url 'about'  %}"><i class="fa-solid fa-circle-info" style="color: rgb(177, 151, 252);"></i>About</a></li>
+                <li><a href="{% url 'feedback'  %}"><i class="fa-regular fa-address-book" style="color: rgb(177, 151, 252);"></i>Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

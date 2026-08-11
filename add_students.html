@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin Home</title>
+
+
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            body{
+                background:linear-gradient(35deg,#e0eafc,#cfdef3);
+                min-height: 100vh;
+                color: #333;
+                display: flex;
+                flex-direction: column;
+            }
+            h1{
+                font-size: 2.3rem;
+                letter-spacing: 1px;
+                background: linear-gradient(135deg,#2c3e50,#34495e);
+                color:white;
+                padding:25px;
+                text-align: center;
+                box-shadow:0 4px 12px rgba(0,0,0,0.2);
+
+            }
+
+            .container{
+                max-width: 800px;
+                margin:30px auto;
+                background:#fff;
+                border-radius: 12px;
+                padding:25px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                display:flex;
+                align-items: center;
+                gap:20px;
+                flex:1;
+            }
+            form{
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+
+
+            }
+            lable{
+                align-self: flex-start;
+                margin: 10px 0 5px 10%;
+                font-weight:600;
+
+            }
+            .input{
+                width:80%;
+                padding:10px;
+                margin-bottom: 10px;
+                border:1px solid #ccc;
+                border-radius:8px;
+                font-size:1rem;
+                
+
+            }
+            .btn{
+                padding: 10px 20px;
+                border-radius: 8px;
+                border: none;
+                text-align: center;
+                font-weight: 600;
+                cursor:pointer;
+                background-color: #3498db;
+                color:white;
+
+            }
+            .back{
+                color:blue;
+                position:relative;
+                left:25px;
+                top:-20px;
+
+            }
+            img{
+                position:relative;
+                left:550px;
+                width: 30%;
+                height:700px;
+
+                
+
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <h1>Student Records Management System</h1>
+        <div class="container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF9HjtVTzjUY1h0d7SkwiEW2X_0cirvJuGceTZ5iFRNw&s=10">
+            <div class="form-box">
+                <h2>Add New Student</h2>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <lable> Full Name </lable>
+                    <input type="text" name="name" placeholder="Enter Full Name" required class="input">
+                    <lable>Email</lable>
+                    <input type="email" name="email" placeholder="Enter Email" required class="input">
+
+                    <label>username</label>
+                    <input type="text" name="username" placeholder="Enter username" required class="input">
+                    
+                    <label>password</label>
+                    <input type="password" name="password" placeholder="Enter password" required class="input">
+
+                    <lable>College Name</lable>
+                    <input type="text" name="college" placeholder="Enter College Name" required class="input">
+                    <lable>Address</lable>
+                    <input type="text" name="address" placeholder="Enter Address" required class="input">
+                    <lable>Joining Date</lable>
+                    <input type="date" name="join_date" required class="input">
+                    <lable>Total Fees</lable>
+                    <input type="text" name="total_fee" placeholder="Enter Total Fees" required class="input" id="tf" oninput="calculateDue()" >
+                    <lable>Paid Fees</lable>
+                    <input type="text" name="paid_fee" placeholder="Enter Paid Fees" required class="input" id="pf" oninput="calculateDue()" >
+                    <lable>Due Fees</lable>
+                    <input type="text" name="due_fee" placeholder="Enter Due Fees" class="input" id="df" readonly> 
+                    <lable>Phone Number</lable>
+                    <input type="text" name="phone" placeholder="Enter Phone Number" required class="input">
+                    <lable>Technology</lable>
+                    <select name="technology" required class="input">
+                        <option value="">Select technology</option>
+                        <option value="php">php</option>
+                        <option value="python">python</option>
+                        <option value="java">java</option>
+                        <option value="Mern">Mern</option>
+                        <option value="Asp.net">Asp.net</option>
+                    </select>
+                    <lable>Upload Image</lable>
+                    <input type="file" name="image" required class="input">
+                    <button type="submit" class="btn">Add Student</button>
+                    <a href="{% url 'AdminHome' %}">Back to Dashboard</a>
+                </form>
+            </div>
+        </div>
+        <script>
+        function calculateDue()
+         {
+    let total = Number(document.getElementsByName("total_fee")[0].value) || 0;
+    let paid = Number(document.getElementsByName("paid_fee")[0].value) || 0;
+
+    let due = total - paid;
+
+    document.getElementsByName("due_fee")[0].value = due;
+         }
+    </script>
+
+    </body>
+        </html>

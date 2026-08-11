@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit_profile</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+        }
+
+        body{
+            background-color: #f4f7fc;
+
+        }
+        .container{
+            width:90%;
+            max-width: 900px;
+            margin: 40px auto;
+
+        }
+
+        .card{
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rbga(0,0,0,0.15);
+            overflow: hidden;
+        }
+        /* .card-header{
+
+
+        }
+        .card-hearder h2{
+
+        }
+        .card-body{
+            padding:30px;
+
+        } */
+
+        .row{
+            display:flex;
+            gap:30px;
+            margin-bottom:20px;
+
+        }
+        .col{
+            flex:1;
+        }
+
+        lable{
+            display:block;
+            margin-bottom: 6px;
+            
+        }
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius: 8px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        input:hover{
+            border-color: #ff6600;
+        }
+        .btn{
+            background-color: #ff6600;
+            color:#fff;
+            padding:12px 30px;
+            border-radius: 8px;
+            font-size:17px;
+            cursor:pointer;
+            outline:none;
+            position: relative;
+            left: 300px;
+        }
+
+        .back{
+            display:inline;
+            text-decoration: none;
+            color:#ff6600;
+            font-weight: bold;
+
+        }
+
+        .image-box{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .image-box img{
+            width:140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid #ff6600;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a  href="{% url 'student_home' %}" class="back">back</a>
+        <div class="card">
+            <div class="card-header">
+                <h2>Edit Profile</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data"><br>
+                     
+                     {% csrf_token %}
+                     <div class=""image-box>
+                        {% if student.image %}
+
+                        <img src="">
+                        {% endif %}
+                        <br>
+                    <input type="file" name="image">
+                </div>
+                <div class="row">    
+                   <div class="col">
+                    <lable>full name</lable>
+                <input type="text " name="fname" value="{{student.name}}">
+            </div>
+
+            <div class="col">
+                <lable>email</lable>
+                <input type="email " name="email" required value="{{student.email}}">
+            </div>
+
+            <div class="col">
+                <lable>Address</lable>
+                <input type="text " name="address" value="{{student.address}}">
+            </div>
+
+            <div class="col">
+                <lable>phone</lable>
+                <input type="tel " name="phone" value="{{student.phone}}">
+            </div>
+
+            <div class="btn">
+                <input type="submit" name="submit" value="Update Profile" placeholder="Update Profile">
+            </div>
+
+                </form>
+            </div>
+            
+                
+        </div>
+
+    </div>
+   
+   
+
+</body>
+</html>

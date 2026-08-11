@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+                index
+        </title>
+        <style>
+    body {
+        background: url(https://www.freevector.com/uploads/vector/preview/100382/small_1x_White_Modern_Background.jpg);
+        background-size: 100% 1500px;
+        background-repeat: no-repeat;
+        margin: 0;
+    }
+
+    .home-section {
+        width: 90%;
+        margin: 40px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .left {
+        width: 50%;
+    }
+
+    .right {
+        width: 45%;
+        text-align: right;
+    }
+
+    .right img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .left h1 {
+        font-size: 48px;
+        color: #1f2937;
+        margin-bottom: 20px;
+    }
+
+    .left p {
+        font-size: 18px;
+        color: #555;
+        line-height: 1.8;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+                     'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .btn {
+        display: inline-block;
+        text-decoration: none;
+        background: #2563eb;
+        color: white;
+        padding: 14px 28px;
+        border-radius: 8px;
+        margin: 10px 10px 0 0;
+        transition: 0.3s;
+    }
+
+    .btn:hover,
+    .btn2:hover {
+        background: #10b981;
+    }
+
+    /* FEATURES */
+    .features {
+        width: 90%;
+        margin: 100px auto 60px;
+        text-align: center;
+    }
+
+    .features h2 {
+        font-size: 40px;
+        color: #1f2937;
+        margin-bottom: 40px;
+    }
+
+    .feature-container {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .feature-box {
+        width: 280px;
+        min-height: 160px;
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        box-sizing: border-box;
+        transition: 0.3s;
+    }
+
+    .feature-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .feature-box h3 {
+        margin: 0 0 15px;
+        color: #1f2937;
+        font-size: 22px;
+    }
+
+    .feature-box p {
+        color: #666;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* STATS */
+    .stats {
+        width: 90%;
+        margin: 80px auto;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        width: 220px;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+        box-sizing: border-box;
+    }
+
+    .box h2 {
+        color: #2563eb;
+        font-size: 36px;
+        margin: 0 0 10px;
+    }
+
+    .box p {
+        color: #666;
+        margin: 0;
+    }
+
+    /* FOOTER */
+    footer {
+        background-color: #0b0b0b;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    footer p {
+        margin: 5px 0;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+        .home-section {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .left,
+        .right {
+            width: 100%;
+        }
+
+        .left h1 {
+            font-size: 36px;
+        }
+
+        .right {
+            text-align: center;
+        }
+
+        .feature-box {
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .box {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+{% include "navbar.html" %}
+
+<div class="home-section">
+
+    <div class="left">
+        <h1>Student Management Record System</h1>
+
+        <p>
+            A Student Management System (SMS) is a digital platform designed
+            to centralize and automate academic administration. It handles the
+            full student lifecycle, streamlining tasks such as admissions,
+            attendance tracking, grading, timetabling, and fee collection.
+        </p>
+
+        <a href="{% url 'add_students' %}" class="btn">Add Student</a>
+        <a href="{% url 'view_students' %}" class="btn btn2">View Student</a>
+    </div>
+
+    <div class="right">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRewCPSdv4Q9obPocdP4xn1IyRRKOrmp-gjNLM_OztlhQ&s=10">
+    </div>
+
+</div>
+
+
+<!-- FEATURES -->
+
+<div class="features">
+
+    <h2>Our Features</h2>
+
+    <div class="feature-container">
+
+        <div class="feature-box">
+            <h3>Add Records</h3>
+            <p>
+                Create new student records quickly and easily
+                with just a few clicks.
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Update Records</h3>
+            <p>
+                Update existing student information accurately
+                and efficiently.
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Delete Records</h3>
+            <p>
+                Remove outdated or incorrect student records
+                safely and easily.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+    <div class="box">
+        <h2>1000+</h2>
+        <p>Students</p>
+    </div>
+
+    <div class="box">
+        <h2>50+</h2>
+        <p>Teachers</p>
+    </div>
+
+    <div class="box">
+        <h2>25+</h2>
+        <p>Departments</p>
+    </div>
+
+    <div class="box">
+        <h2>100%</h2>
+        <p>Secure Data</p>
+    </div>
+
+</div>
+
+
+<footer>
+    <p>© 2026 Student Management System.</p>
+    <p>Manage student records efficiently and securely.</p>
+    <p>© 2026 All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
+
+    

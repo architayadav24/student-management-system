@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Student</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            background-color: #f4f8f8;
+            color:#333;
+
+        }
+        .table-container{
+            max-width:1200px;
+            margin:30px auto;
+            background-color: #fff;
+            border-radius: 12px;
+            padding:25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:20px;
+            color:#333;
+            text-transform:uppercase;
+            border-bottom:1px solid #333;
+        }
+        th,td{
+            padding:12px 8px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+
+        }
+        table{
+            width:100%;
+            border-collapse: collapse;
+
+        }
+        th{
+            background-color: #3498db;
+            color:#fff;
+            font-weight: bold;
+
+
+        }
+        tr:hover{
+            background-color: #f1f9ff;
+        }
+        img{
+
+        width:60px;
+        height:60px;
+        border-radius: 50%;
+        box-shadow: 02px 5px rgba(0,0,0,0.2);
+    }
+
+    .back{
+        position: fixed;
+        bottom:20px;
+        right:20px;
+        text-decoration: none;
+        background-color: #0004ff; 
+        color:wheat;
+        padding:10px 18px;
+        font-size: 16px;
+        box-shadow: 0 4px 8px rgba(0 0 0 0.1);
+        border-radius: 10px;
+        
+
+
+    }
+    
+        </style>
+</head>
+
+
+
+<body>
+    <div class="table-container">
+    <h2>View Student</h2>
+    <!-- Content for viewing student information -->
+     <table>
+        <thead>
+            <tr>
+            <th>SR.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>College</th>
+            <th>Address</th>
+            <th>Joining Date</th>
+            <th>Total Fee</th>
+            <th>Paid Fee</th>
+            <th>Due Fee</th>
+            <th>phone</th>
+            <th>Technology</th>
+            <th>Image</th>
+            <th>action</th>
+            </tr>
+   
+        
+            {% for i in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.college }}</td>
+                <td>{{ i.address }}</td>
+                <td>{{ i.join_date }}</td>
+                <td>{{ i.total_fee }}</td>
+                <td>{{ i.paid_fee }}</td>
+                <td>{{ i.due_fee }}</td>
+                <td>{{ i.phone }}</td>
+                <td>{{ i.technology }}</td>
+                <td><img src="{{ i.image.url }}"></td>
+                <td>
+                <a href="{% url 'edit_student' i.id %}" class="edit-btn"><i class="fa-regular fa-pen-to-square fa-lg" style="color: rgb(177, 151, 252);"></i></a>
+                <a href="{% url 'del_student' i.id %}" onclick="return confirm('ARE YOU SURE YOU WANT TO DELETE THIS STUDENT RECORD?')" class="del-btn"><i class="fa-solid fa-trash fa-lg" style="color: rgb(177, 151, 252);"></i></a>
+            </td>
+            </tr>
+
+            {% endfor %}
+     
+          </thead>
+          </table>
+    </div>
+
+    <a href="{% url 'AdminHome' %}" class="back">Back to Dashboard</a>
+</body>
+</html>
